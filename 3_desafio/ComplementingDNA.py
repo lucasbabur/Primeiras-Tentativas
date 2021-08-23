@@ -1,0 +1,41 @@
+Nucleotides = ["A", "C", "G", "T"]
+
+def validateSeq(dna_seq):
+    tmpseq = dna_seq.upper()
+    
+    for nuc in tmpseq:
+        if nuc not in Nucleotides:
+            return False
+    return True
+
+def DNAcompletion(seq):
+    DNA = ""
+    if (validateSeq(seq)):
+        for nuc in seq:
+            if (nuc == 'T'):
+                nuc = 'A'
+            elif (nuc == 'A'):
+                nuc = 'T'
+            elif (nuc == 'G'):
+                nuc = 'C'
+            else:
+                nuc = 'G'
+            DNA = DNA + nuc
+        return DNA
+    else:
+        raise("String is not a DNA! Please verify if it's an DNA [1]")
+
+# Função de reversão de DNA
+def DNAreversion(seq):
+    DNA = ""
+    if (validateSeq(seq)):
+        for nuc in seq:
+            DNA = nuc + DNA
+        return DNA
+    else:
+        raise("String is not a DNA! Please verify if it's an DNA [1]")
+
+reverted = DNAreversion("CCACCTCCGGCCGAGAGAACTTAGCGCCTTAGAAGATACCTTGACTAAAGGCACGCACTTGCAGGTTAGGTGCGTTATTTGCTCTAAGCACAGCCAGGACTCGATTTATCATAATGGAACCTATGGACTGGCGCAACAGTTCAAGACAAGCCCCCCCAACCAATGCGCCCTCACACGCCAGGAAGACCGAACCCGCATGCTGAGTAGGTCTATCCTGGAGTCGGCGACGAATCAGTCGTCATTTCCAATGTCGTCGACACCCTATCAGGAGTTTAGTTACGTAACGAGGGCAGGGGTCCTTTAACCCAGAGAGTGGATGTTGACCCACAGCTTCCGCGCAGCTCTTGCTTCGAGTAGAAAATGTGGAACTGGCGGCTATAACGAACCTCCTCCGGGCACTGAGGAAAGCGCTTCCCCGATTGGCCTAAATGGTCTGGAATGTACGAAGGAATGTAGAGAAAAGATTTTGGGTATCGGTTGCAATTCGTCTAACCTTTACTGTCAGCAATTGCGGAACAATACGAGTTAAACCTCACCGGCTGACCGCACCTCCATCTTTACAGTCAACCTTTCGCGTGGGGAATGGACGCTATTTCGAAACAGGCGGACCACGTCCATGGATAGAGCCGCGAATATAGATCTATAAGTTCGCTGGTCCCGAGCGCCATATTGGGGGTCTGATACCAGCTTCCTCCTGTGTTTGCTCTGGTATGCTCTTTTCGGCAGTGTTCATCTCAATTGCACGCGAAAACATGTCTGCTGATTGGCCTCTACCTCTAATGCGCCAAAATCTCGAAAAAAAGAGTAATCGGTCATATACGGGAGGTCTG")
+completed = DNAcompletion(reverted)
+
+print(completed)
