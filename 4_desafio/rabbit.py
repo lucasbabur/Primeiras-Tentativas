@@ -1,15 +1,29 @@
 def RabbitCalculator(months, reproduction_rate):
-    total_number = reproduction_rate * 1
 
- 
-    x = 1 * 3 = 3 
+    
+    
 
-    3 * 3 = 9 + 3 
+    filhotes = 0
+    filhotes2 = 0
+    coelhos_adultos = 1
+    
 
-    12 
+    if months == 1:
+        return 1
+    elif months == 2:
+        return 1
+    else:
+        for numbers in range(months):
+            print("Geracao: " + str(numbers))
+            print("Número de Coelhos Adultos: " + str(coelhos_adultos))
+            print("Número de Filhotes: " + str(filhotes))
 
-    for month in range(months - 1):
-        total_number = (reproduction_rate * total_number)
-    return total_number
+            if numbers == months - 1:
+                return coelhos_adultos
+            
+            filhotes = coelhos_adultos * 3
+            coelhos_adultos = filhotes2 + coelhos_adultos
+            filhotes2 = filhotes
+    
 
-print(RabbitCalculator(5, 3))
+print(RabbitCalculator(31, 3))
